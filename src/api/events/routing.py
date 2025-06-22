@@ -7,11 +7,13 @@ from .schemas import (
 )
 
 router = APIRouter()
+from api.dp.config import DATABASE_URL
 
 #List View
 # GET /api/events
 @router.get("/")
 def read_events() -> EventListSchema:
+    print(DATABASE_URL)
     return {
         "results": [{"id": 1}, {"id": 2}, {"id": 3}],
         "count": 3
